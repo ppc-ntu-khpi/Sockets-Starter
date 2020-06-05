@@ -35,6 +35,37 @@ public class ChatClient {
   //решта коду
 }
 ````
+5. додайте метод *doConnect* для ініціалізації сокетного з'єднання з сервером:
+````java
+private void doConnect() {
+````
+6. отримайте значення ІР-адреси сервера та порту:
+````java
+  String serverIP = System.getProperty("serverIP", "127.0.0.1");
+  String serverPort = System.getProperty("serverPort", "2000");
+````
+Зверніть увагу, що адреса та порт сервера тут читаються з системних властивостей, а надані у лапках значення - це значення за замовчуванням, які слід застосувати якщо відповідних змінних не знайдено. 
+7. створіть з'єднання з чат-сервером:
+````java
+  try {
+    connection = new Socket(serverIP, Integer.parseInt(serverPort));
+````
+8. отримайте вхідний поток та збережіть посилання на нього у змінній, яку ви створили на кроці 4:
+````java
+    InputStream is = connection.getInputStream();
+    InputStreamReader isr = new InputStreamReader(is);
+    serverIn = new BufferedReader(isr);
+````
+9. отримайте вихідний потік та збережіть посилання на нього у змінній, яку ви створили на кроці 4:
+````java
+    serverOut = new PrintStream(connection.getOutputStream());    
+````
+10. створіть потік для читання повідомлень:
+````java
+     Thread t = new Thread(new RemoteReader());
+     t.start();
+````
+
 
 
 **Додаткові завдання** (для тих хто зробив все і прагне більшого):
