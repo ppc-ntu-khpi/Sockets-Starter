@@ -28,11 +28,11 @@ import java.io.*;
 4. додайте до класу змінні для вхідного та вихідного потоків:
 ````java 
 public class ChatClient {
-  //решта коду
+  // решта коду
   private Socket connection = null;
   private BufferedReader serverIn = null;
   private PrintStream serverOut = null;
-  //решта коду
+  // решта коду
 }
 ````
 5. додайте метод *doConnect* для ініціалізації сокетного з'єднання з сервером:
@@ -65,6 +65,54 @@ private void doConnect() {
      Thread t = new Thread(new RemoteReader());
      t.start();
 ````
+УВАГА! На цьому етапі ви отримаєте помилку, оскільки клас *RemoteReader* ще не описано - ми створимо його на одному з наступних кроків!
+11. перехопіть виключення:
+````java
+    } catch (Exception e) {
+      System.err.println("Unable to connect to server!");
+      e.printStackTrace();
+    }
+} // закінчення методу doConnect
+````
+12. змініть метод *launchFrame* - додайте виклик щойно створеного методу *doConnect*:
+````java
+private void launchFrame() {
+  // решта коду
+  doConnect();
+}
+````
+13. змініть внутрішній клас *SendHandler* - додайте логіку надсилання повідомлень (з ім'ям користувача) до вихідного потоку. Не забудьте видалити код, який відображає повідомлення у області повідомлень!
+````java
+private class SendHandler implements ActionListener {
+  public void actionPerformed(ActionEvent e) {
+    String text = input.getText();
+    text = usernames.getSelectedItem() + ": " + text + "\n";
+    serverOut.print(text);
+    input.setText("");
+  } // закінчення методу actionPerformed 
+} // закінчення опису внутрішнього класу SendHandler
+````
+14. створіть внутрішній клас *RemoteReader*, який реалізує інтерфейс *Runnable*. Метод *run* має читати рядок з вхідного потоку у нескінченному циклі:
+````java
+private class RemoteReader implements Runnable {
+  public void run() {
+    try {
+      while ( true ) {
+        String nextLine = serverIn.readLine();
+        output.append(nextLine + "\n");
+      }
+    } catch (Exception e) {
+        System.err.println("Error while reading from server.");
+        e.printStackTrace()
+      }
+  } // закінчення методу run 
+} // закінчення опису внутрішнього класу RemoteReader 
+````
+15. зкомпілюйте програму
+
+
+
+
 
 
 
