@@ -110,7 +110,7 @@ private class RemoteReader implements Runnable {
   } // закінчення методу run 
 } // закінчення опису внутрішнього класу RemoteReader 
 ````
-15. зкомпілюйте програму
+15. впевніться, що програма успішно компілюється
 
 ### Перевірка працездатності сервера та клієнта
 1. додайте в проект решту файлів - вміст теки [Server](https://github.com/ppc-ntu-khpi/Sockets-Starter/tree/master/classes/Server)
