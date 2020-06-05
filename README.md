@@ -11,7 +11,10 @@
 Клієнт чату (наданий вам [код](https://github.com/ppc-ntu-khpi/Sockets-Starter/blob/master/classes/ChatClient.java)) має бути змінений, аби додати дві важливі функції: 
 * надсилання повідомлення користувача до сервера
 * відображення всіх отриманих від сервера повідомлень
+
 На рисунку показано детальну будову програми ChatClient. Вам потрібно додати метод **doConnect** до класу **ChatClient** для ініціації сокетного під'єднання до чат-сервера.
+
+![](https://github.com/ppc-ntu-khpi/Sockets-Starter/blob/master/ChatClient.png)
 
 **Додаткові завдання** (для тих хто зробив все і прагне більшого):
 Всі необхідні бібліотеки містяться у теці [jars](https://github.com/liketaurus/TUI-Labs/tree/master/jars). В тому числі - всі необхідні класи з робіт 1-8 - файл [MyBank.jar](https://github.com/liketaurus/TUI-Labs/blob/master/jars/MyBank.jar). Файл даних лежить у теці [data](https://github.com/liketaurus/TUI-Labs/tree/master/data).
