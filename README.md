@@ -18,14 +18,24 @@
 
 ## Хід роботи
 
-1. створити новий проект у середовищі розробки за вашим вибором
-2. додати в проект файл [ChatClient](https://github.com/ppc-ntu-khpi/Sockets-Starter/blob/master/classes/ChatClient.java) і відкрити його
-3. імпортувати потрібні пакети:
-
+1. створіть новий проект у середовищі розробки за вашим вибором
+2. додайте в проект файл [ChatClient](https://github.com/ppc-ntu-khpi/Sockets-Starter/blob/master/classes/ChatClient.java) і відкрийте його
+3. імпортуйте потрібні пакети:
 ````java
 import java.net.*;
 import java.io.*;
 ````
+4. додайте до класу змінні для вхідного та вихідного потоків:
+````java 
+public class ChatClient {
+  //решта коду
+  private Socket connection = null;
+  private BufferedReader serverIn = null;
+  private PrintStream serverOut = null;
+  //решта коду
+}
+````
+
 
 **Додаткові завдання** (для тих хто зробив все і прагне більшого):
 Всі необхідні бібліотеки містяться у теці [jars](https://github.com/liketaurus/TUI-Labs/tree/master/jars). В тому числі - всі необхідні класи з робіт 1-8 - файл [MyBank.jar](https://github.com/liketaurus/TUI-Labs/blob/master/jars/MyBank.jar). Файл даних лежить у теці [data](https://github.com/liketaurus/TUI-Labs/tree/master/data).
