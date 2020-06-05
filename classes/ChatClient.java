@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 
+//based on code snippets from original Java course
 public class ChatClient {
 
   private TextArea output;
@@ -17,13 +18,13 @@ public class ChatClient {
     sendButton = new Button("Send");
     quitButton = new Button("Quit");
     usernames = new Choice();
-    usernames.add("Bryan Basham");
-    usernames.add("Grand Poobah");
-    usernames.add("Java Geek");
+    usernames.add("John Doe");
+    usernames.add("Fox Mulder");
+    usernames.add("Dana Scully");
   }
 
   public void launchFrame() {
-    frame = new Frame("Chat Room");
+    frame = new Frame("PPC Chat");
 
     // Use the Border Layout for the frame
     frame.setLayout(new BorderLayout());
